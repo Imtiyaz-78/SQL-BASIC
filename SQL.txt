@@ -1,0 +1,318 @@
+======> My PgAdmin p: 123
+
+1. What is Data:
+  --> Data is unanalized, unorganized, unrelated materials. 
+  --> It is an individual unit which conatins raw material and dose not cary any meaning.
+  --> it is measured in bits and bytes.
+  --> Data is a raw material.
+
+
+2. What is information:
+  --> Information is the protect and group of data which collectively carry a logical meaning.
+  --> Information is measured in meaningful units like time, quantity.
+
+
+3. What is Data Modeling:
+  1. Modeling is Structure.
+  2. Data Model is the modeling of the data description, data semantics, and consistency  
+     constraints of the data.
+ 
+  3. It provides the conceptual tools for describing the design of a database 
+     at each level of data abstraction. 
+
+4. What is Entity Realationship Model (ER Model):
+   1. Entity is real world Object like person, student.
+   2. Imtiyaz works for human --> isme works ek Realationship hai
+   3. Attributs? student ke Attributs --> student ka roll No, Name, age they all are Attributs 
+
+   --> Types of Entity:
+       1. Entity Types.
+       2. Entity Sets.
+
+       1. Entity Types:
+          Entity types is a collection of entities or Object with similar attributs.
+          student => Entity Name + id, age, Name, gender <-- attributs they all are say Entity ty 
+      
+       2. Entity Sets: Suppose ek college mein all student ka data hai uss data Table bahut sare 
+          Students hai sab student ke ek row mein different Data hai Like Students1, student2 they all called Entity Sets.
+
+          Entity set is collection of the Object to same entity.
+
+          Exapmle: Student1 --> Name , Age, gender id, address
+                   student2 --> Name , Age, gender id, address
+                   Student3 --> Name , Age, gender id, address
+
+5. What is Attributs:
+   An attribute is a property or characteristic of an entity. 
+   An entity may contain any number of attributes.
+
+   1. Types of Attributs:
+      1. Simple or Atomic Vs Composite.
+      2. Single Valued vs Multi Valued.
+      3. Stored Vs derived.
+      4. Complex Attributs.
+      5. Key Attributs.
+
+      1. Simple or Atomic Vs Composite: 
+         Simple attributs are those attributs jise hum dubara hum divide nhi kar sakte like Gender and Like student ka grades {A, B, C, D, E, F} ise hum no agina divide.
+
+         Composite attributs:
+         Composite attributs are those attributs jise hum again divide kar saktey hai like Student ka Name --> First Name, Middle Name and Last Name nad other Exampa
+         address ---> House No. , Street, Area , Pin Code
+
+
+      2. Single Valued vs Multi Valued   
+         1. Single Valued: Single Valued attributs have single Value Like Phone Number
+         2. Multi Value: Multi Value attributs have multiple value Like address 
+            Ek Employee ke pass mutltiple houses Ho saktey hai they Multi value Attributs.
+     
+
+      3. Stored Vs derived.
+         1. Store Attributs: Like ek table mein student ka DOB store ---> 24 Jan 2001
+         2. Derived Attributs: we can find data through other attributs like age from other.
+
+      4. Null Attributs:
+         Null attribute are those attribute those have no any entity like ek student but uska koee address nhi hai toh uske value ki jagah Null store kar dengey DataBase mein .
+
+
+       5. Complex Attributs:
+          Complex attribute are those attribute they mutltiple key attribute and they multiple address have mutltiple phone Number.
+
+          Exapmle: address {(Building No, Pin code, {phone Number} }
+       
+
+       6. Key Attributs:
+          key attribute are those attribute jise hum uniquely identify kar saktey hai 
+          Exapmle: Suppose ek student table
+
+                    <---------> Student <---------->
+
+                    Roll No| Name | Gender | address
+                    123        A     M        Delhi
+                    23         B     F        Noida
+                    45         C     M        Bihar
+
+                    --> we can access student uniquely by their on the basis of Roll Number.
+                    --> unique attribute Dublicates nhi ho sakti kisi bhi row uniquely
+                    --> Best Exapmle of Key Attributs: Aadhaar card 
+
+
+
+6. What is Realationship:
+   1. Degree
+      --> Binary
+      --> Ternary
+      --> N-ary
+    
+   2. Cardinarity Ratio: 
+
+
+<===========================> Relatonal Model (RDBMS) <==============================>
+
+1.RDBMS ki modeling mein Relatonal Model use hoti hai
+
+
+2. Types of DBMS(Databse):
+   1. Relatonal Databse:  they all Relatonal database
+   2. Non-Relatonal Databse: MongoDB,
+
+   1. Relatonal Databse:
+      Relatonal Database are those database which are store in the form of Table (Row, Column) 
+      For Exapmle of Relatonal Databse are MySQL, PostgreSQL, 
+   
+   2. Non-Relatonal Databse:
+      Non-Relatonal Database are those database which are store in the form of Docs or XML 
+      For Exapmle of Non-Relatonal Databse are MongpDB, Exist DB etc
+
+
+3. Schema based constraints:
+   1. Domain constraints.
+   2. Null constraints.
+   3. key constraints.
+
+   1. Domain constraints:
+      each attribute value should be atomic and belongs to attribute domain sets 1. Data Types
+      2. Range [1- 100]  3. List [5, 10, 20, 40]
+   
+
+   2. Null attribute:
+      It specifies whether null value are permitted or not
+
+
+
+==> What is SQL:
+    SQL Stands forStructural Query Language.
+
+==> What is Procedural Language?
+==> What is Non-Procedural language or Declarative Language?
+
+==> What  is difference Between Procedural and Non-Procedural Language
+   1. Procedural Language:
+      User has to tell both what and How to do it Ex: C, C++, Java etc.
+      Best Example Tea banane ke liye Mom ko boltey goto on Kicten take sugar something ...
+   
+   2. Non-Procedural Language:
+      users has to tell what to do and need not worry about how to do it Ex: SQL, LISP etc 
+     
+   --> SQL is absed on the concepts of Set Theory.
+
+
+==> What is Database:
+    Database Just Like Hard disk jsime Mera all data Store Rahta hai like Movie, image, music etc
+
+==> What is DBMS(Database Mannagement System):
+    DBMS ek software hota hai jiske jariye hum apne Data ko access kar saktey hai.
+    and by the help of DBMS hum Database ke under read, write, delete anything we can do.
+
+
+    Best Example Mera Laptop hai and laptop ke under Hard Disk pari huee hai and  i want to access Data from hard disk toh mere mere laptop ke under operating stystem hai jsika mai use karke hard ko use kar pa raha hu
+    
+
+    DBMS ek software Hota hai jisse hum apne Database ko access kar saktey hai like read, write
+
+
+==> SQL Schema:
+   1. It is identified by a Schema name and it includes an authorizaton indentifiers to identify the user or account who owns the schema as well as discripes for the each element.
+
+   2. Schema element could include tables, types, constraints, views, domain, indexs etc.
+
+   3. we can create a schema using below commands:
+      create schema sche-name authorizaton user-name
+
+      create schema company authorization postgres;
+
+      --> uper ki command se ek schema create kiya hu and mai postgres name ke user only access diya hu only ye sirf access kar sakta hai.
+
+   
+
+==> Ctalog:
+    catalog mein bhi Table store rahata hai and usme ye information hoti hai koun sa data kahan par store hai 
+    
+
+    1. catalog mein meta data store rahta hai.
+    2. catalog is container of schema.
+    3. when database is installed , default enviroment & schema is created, so that when a user login he/she can directly refers to tables & other elemnts withouts having to the specify a particular schema name public.
+
+
+
+==> Information Schema:
+    A catalog always conatins a special schema called information schema which provides information on all the schema in the catalog & all element describing in them
+
+ ==> schema means hota hai ki table + table ke under uska attribute, views, constraints, like foreign key constraints, super key constraints etc.   
+ 
+==> How to set newly craeted schema to use?
+    Command: SET search_path TO schema_name.
+             schema-name means table ka name like
+
+--> Schema means Structure hota.
+--> Tuple means entire row.
+
+===> SQL Features;
+     1. DDL (Data Defintion Language).
+     2. DML (Data manipulation language).
+
+     1. Data Defintion Language(DDL):
+        DDL deals with schema and and you want ki aap table ke under new attribute add karna chahtey ho koee data store karna chahte ho 
+        
+        . CREATE
+        . ALTER
+        . DROP
+        . TRUNCATE
+     
+
+     2. Data manipulation language(DML);
+        DML deals with Data inside Tables.
+        Playing with value then we use DML.
+
+        . SELECT
+        . DELETE
+        . INSERT
+        . UPDATE
+      
+      
+      3. Defining views on the database.
+      
+      4. we can provide security and authorization means koun user acces kar skata hai and kiss way mein acces kar sakta hai. one row or one column ka access de saktey special
+      
+      
+
+---> DDL Command for creating Table Example:
+     
+     create table table_name(
+         attribute1_name datatype,
+         attribute2_name datatype,
+         attribute2_name datatype,
+
+     );
+     
+     create table Employee(
+      Fname varchar(15) <-- menas char ka length 15 rahega condition
+      Mname varchar(16), <-- same condition
+      Lname varchar(16), <-- same condition
+      SSN char(9),
+      Bdate date,
+      address varchar(50);
+      sex char,
+      salary numeric,
+      superssn char(90),
+      dno numeric
+     );
+
+
+===> Data Types in SQL:
+1. Numeric
+   1. Integer Types(Noraml int, Bight int, ....)
+   2. Floating point Types
+   3. Serial Types
+   4. Arbitary precision Numbers
+
+2. character:
+   1. character varying(n), varchar(n)	variable-length with limit
+   2.character(n), char(n)	fixed-length, blank padded
+   3.text	variable unlimited length
+
+
+3. Boolean
+   1. true 
+   2. flase
+   3. unkonwn (Ex: 12>Null ouput --> unkonwn 2nd Null == Null --> unkonwn)
+
+
+4. Date:
+   YYYY-MM-DD
+
+5. Time:  
+   HH.MM.SS 
+
+6. TimeStamp : 
+    TimeStamp mein date and Time dono include ho jatey hai
+    Ex: "2:3:23 12:20:60"
+
+
+7. Inteval:
+
+
+
+
+==> What are views:
+    . This is Virtual Table
+    . It Stores a query
+
+    1. Types of views
+       . Read only / updatable views
+       . Materialized views
+    
+    2. Uses of views
+       . To provide different views of samee data
+       . To restrict data acces
+       . complex queries can be stored in form of views
+
+
+===> Constraints in SQL:
+     1. not null
+     2. default
+
+     1. not null is constraints whcih tell value not be null menas koee table craete huwa and uss table ke colum mein value null nahi hona chahiye
+     
+     2. default: 
+        If hum kisi attribute mein value store nhi karte hai toh uss attribute mei  by default null value store ho jati hai by default simple.
