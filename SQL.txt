@@ -307,12 +307,53 @@
        . To restrict data acces
        . complex queries can be stored in form of views
 
-
+---> SQL constraints are used to specify rules for the data in a table.
+---> Basically constraints are just rules for table like name not be null means not be balank
 ===> Constraints in SQL:
      1. not null
      2. default
+     3. check
+     4. unique
+     5. primary key
+     6. foreign key
 
-     1. not null is constraints whcih tell value not be null menas koee table craete huwa and uss table ke colum mein value null nahi hona chahiye
+     1. not null:
+        not null  is constraints whcih tell value not be null menas koee table craete huwa and uss table ke colum mein value null nahi hona chahiye
      
      2. default: 
-        If hum kisi attribute mein value store nhi karte hai toh uss attribute mei  by default null value store ho jati hai by default simple.
+        If hum kisi attribute mein value store nhi karte hai toh uss attribute mei by default null value store ho jati hai by default simple.
+
+    3. check constraints:
+       check constraints ka hum log use kartey jab koee restriction lagani ho Suppose aapne ATM mein gye and 10k withdrawal nikalne ki kosis ki and aapke account mein 8k hi balance hai 
+       then balance withdrawal nhi honi chahiye.
+
+       Then hum Database mein constraints laga saktey hai ki command--> check(withdrawal>C.B)
+
+   
+   4. unique Constraints:
+      Maine kisi Column ko unique specify kar diya and mai koee value again insert karne ki kosis
+      kar raha hu then database ek error through karega unique constraints voilet
+
+      . unique constraints mein NULL Value bhi Store Kar saktey hai
+
+
+   5. primary key constraints:
+      . primary key constraints is combination of UNIQUE + NOT NULL means.
+      . ek table ke column mein value should be unique as well as not null. 
+      . If kisi column mein value null Insert kar rahe hai then database ek error through karega 
+        not null voilet.
+
+   6. Foreign Key constraints:
+      . Foreign key constraints is combination of two Relatonal(TABLE)
+        means they Eshtablish Realation Between two Table
+      
+      . suppose koee new employe hai hai and usse abhi filhal koee dapartment allowcate nhi huee 
+        hai toh filhal ke liye usse Null Department mein allowcate kar dengey
+
+
+       ---> V.V.I 
+       . Foreign key can allow duplicates value means same employe they can work same deprt..
+       . Foreign value constraints NULL value be allow karti hai
+       . Foreign key constraints ka DATA TYPE same hona chahiye
+       . Suppose we have two Table First Employee Table and second is Department table and iss   
+         dono table mein kuchh attribute hai empl ID, Empl Name, Deprt No. same as in Department table then (i) Data Type must be same (ii) D.No. must be primary key
