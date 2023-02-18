@@ -1,0 +1,37 @@
+
+==> What is Producural vs Object Oriented Programming:
+   1. Producural Programming:
+      . Focus on function & logic!
+      . Less reliable & less secure no acces modifier
+      . Less resusability & difficulty in maintaining the codebase
+      . Example: C programming Language
+        Note: Javascript is functional Programming Language
+
+
+    2. Object Oriented Programming:
+       . Focus on Data & Object!
+       . Focus on Data members & member functions
+       . More reliable & secure
+       . Data Hiding & Encapsulation
+       . More resusability & Easy maintainbility due to 
+         inheritence & polymorphism
+       . Example: c++, java, python, c#
+
+--> java is Compile type Language as well as Interprater Language
+
+==> Why java Platform Independent:
+    Java platform Independent isliye hai ki Java pahle java file ko Compile karke Byte code mein convert karti hai means .class(dot class) file mein execute or convert karti hai then ye .class file ko aap kisi bhi platform par run kar saktey ho LIke: windows Operating System, MAC OS, Lunus/Linex so java isliye platform Independent hoti hai
+
+
+    Process--> Java code (Compile(JavaC))----> Byte code(.class file) --> execute(JVM) --> Machine Code
+
+    --> What is JRE:
+
+
+
+==> what is diffenrence between Program and Process:
+    1. Program
+    2. Process 
+
+
+    
