@@ -141,12 +141,12 @@
 
 
 ==> What is SQL:
-    SQL Stands forStructural Query Language.
+    SQL Stands for Structural Query Language.
 
 ==> What is Procedural Language?
 ==> What is Non-Procedural language or Declarative Language?
 
-==> What  is difference Between Procedural and Non-Procedural Language
+==> What is difference Between Procedural and Non-Procedural Language
    1. Procedural Language:
       User has to tell both what and How to do it Ex: C, C++, Java etc.
       Best Example Tea banane ke liye Mom ko boltey goto on Kicten take sugar something ...
@@ -218,23 +218,87 @@
         . ALTER
         . DROP
         . TRUNCATE
-     
 
-     2. Data manipulation language(DML);
-        DML deals with Data inside Tables.
-        Playing with value then we use DML.
+        . CREATE:
+          CREATE Command ka use kartey hai for creating the Table
 
-        . SELECT
-        . DELETE
-        . INSERT
-        . UPDATE
-      
-      
-      3. Defining views on the database.
-      
-      4. we can provide security and authorization means koun user acces kar skata hai and kiss way mein acces kar sakta hai. one row or one column ka access de saktey special
-      
-      
+        . ALTER:
+          ALTER DDL command ka Basically use hum tab kartey jab 2 Table crated kar rahe hai
+          and hum chahtey hai ki constraints baad mein add kru then we should be use ALTER com..
+
+          ALTER command is used to add, delete, or modify columns in an existing table.
+          ALTER command is also used to add and drop various constraints on an existing table.
+
+
+         Alter command: alter table students alter column age type varchar(10)
+
+        . DROP:
+          Drop command are use to check if table alreday excits then they delete Like ta student 
+          command: drop table if excits student
+
+            
+          Example of drop Command:
+                     
+            drop table if exists students;
+            drop table if exists course cascade;
+
+            select * from information_schema.referential_constraints where constraint_schema ='company';
+
+            create table course(
+               s_course_id numeric primary key,
+               s_course_name varchar(20)
+               
+            );
+
+
+            create table students(
+               sid numeric, 
+               sname varchar(30),
+               s_course_id numeric references course(s_course_id)
+            );
+
+
+             
+          
+         . TRUNCATE
+           delete all the values inside the table without altering or deleting schema of the table
+
+           . Command: truncate table table_name
+
+           Example of truncate command
+
+               drop table if exists students;
+               drop table if exists course cascade;
+
+               select * from information_schema.referential_constraints where constraint_schema ='company';
+
+               create table course(
+                  s_course_id numeric primary key,
+                  s_course_name varchar(20)
+                  
+               );
+
+
+               create table students(
+                  sid numeric, 
+                  sname varchar(30),
+                  s_course_id numeric references course(s_course_id)
+               );
+
+
+               insert into students values(1,'DBMS');
+               insert into students values(2,'DBMS');
+               insert into students values(3,'DBMS');
+               insert into students values(4,'DBMS');
+               insert into students values(5,'DBMS');
+
+               truncate table students ;
+
+               select * from students;
+
+
+
+<---------------------------------> <------------------------------------------->
 
 ---> DDL Command for creating Table Example:
      
@@ -242,11 +306,10 @@
          attribute1_name datatype,
          attribute2_name datatype,
          attribute2_name datatype,
-
      );
      
      create table Employee(
-      Fname varchar(15) <-- menas char ka length 15 rahega condition
+      Fname varchar(15)  <-- menas char ka length 15 rahega condition
       Mname varchar(16), <-- same condition
       Lname varchar(16), <-- same condition
       SSN char(9),
@@ -257,6 +320,65 @@
       superssn char(90),
       dno numeric
      );
+
+<--------------------------------------> <-------------------------------------->
+
+
+     2. Data manipulation language(DML);
+        DML deals with Data inside Tables.
+        Playing with value then we use DML.
+
+        . SELECT
+        . DELETE
+        . INSERT
+        . UPDATE
+
+
+        . DELETE command:
+          delete command are use to remove the tuples from a relation
+
+          Syntax:
+          delete from table_name where column_name condition value.
+          Exmple:
+
+         drop table if exists students;
+         drop table if exists course cascade;
+
+         select * from information_schema.referential_constraints where constraint_schema ='company';
+
+         create table course(
+            s_course_id numeric primary key,
+            s_course_name varchar(20)
+            
+         );
+
+
+         create table students(
+            sid numeric, 
+            sname varchar(30),
+            s_course_id numeric references course(s_course_id)
+         );
+
+
+         insert into course values(1,'DBMS');
+         insert into course values(2,'DBMS');
+         insert into course values(3,'DBMS');
+         insert into course values(4,'DBMS');
+         insert into course values(5,'DBMS');
+
+
+         select * from course;
+
+         delete from course where s_course_id %2 = 0
+
+
+      
+      3. Defining views on the database.
+      
+      4. we can provide security and authorization means koun user acces kar skata hai and kiss 
+         way mein acces kar sakta  hai. one row or one column ka access de saktey special
+      
+
 
 
 ===> Data Types in SQL:
@@ -293,7 +415,6 @@
 
 
 
-
 ==> What are views:
     . This is Virtual Table
     . It Stores a query
@@ -318,7 +439,7 @@
      6. foreign key
 
      1. not null:
-        not null  is constraints whcih tell value not be null menas koee table craete huwa and uss table ke colum mein value null nahi hona chahiye
+        not null is constraints whcih tell value not be null menas koee table craete huwa and uss table ke colum mein value null nahi hona chahiye
      
      2. default: 
         If hum kisi attribute mein value store nhi karte hai toh uss attribute mei by default null value store ho jati hai by default simple.
@@ -352,8 +473,130 @@
 
 
        ---> V.V.I 
-       . Foreign key can allow duplicates value means same employe they can work same deprt..
-       . Foreign value constraints NULL value be allow karti hai
+       . Foreign key allow you tostore duplicates value means same employe they can work same dep
+       . Foreign key constraints allow to store NULL Value
        . Foreign key constraints ka DATA TYPE same hona chahiye
+
        . Suppose we have two Table First Employee Table and second is Department table and iss   
          dono table mein kuchh attribute hai empl ID, Empl Name, Deprt No. same as in Department table then (i) Data Type must be same (ii) D.No. must be primary key
+
+
+
+====> Best Example of Foreign key constraints:
+
+drop table if exists students;
+drop table if exists gradeT;
+
+create table gradeT (
+   gname char,
+   gid numeric,
+   primary key(gname)
+);
+
+
+create table students(
+   imt numeric,
+   sname varchar(30),
+   grade char,
+   foreign key (grade) references gradeT(gname) on delete set null
+);
+
+
+insert into gradeT values('A',1);
+insert into gradeT values('B',2);
+insert into gradeT values('C',3);
+
+
+insert into students values(1, 'abc', 'A');
+insert into students values(2, 'def', 'B');
+insert into students values(2, 'ghi', 'C');
+
+
+select * from students;
+select * from gradet;
+
+delete from gradeT where gid = 2;
+
+
+
+===> Insert and Delete Operation 
+
+drop table if exists students;
+drop table if exists gradeT;
+
+create table gradeT (
+   gname char,
+   gid numeric,
+   primary key(gname)
+);
+
+
+create table students(
+   imt numeric,
+   sname varchar(30),
+   grade char,
+   foreign key (grade) references gradeT(gname)
+);
+
+
+insert into gradeT values('A',1);
+insert into gradeT values('B',2);
+insert into gradeT values('C',3);
+
+
+insert into students values(1, 'abc', 'A');
+insert into students values(2, 'def', 'B');
+insert into students values(2, 'ghi', 'C');
+
+
+select * from students;
+select * from gradet;
+
+delete from students where sname = 'abc';
+delete from gradet where gid = 2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
