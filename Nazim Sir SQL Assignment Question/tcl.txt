@@ -1,0 +1,150 @@
+SQL> select *
+  2  from spiders;
+
+     SR_NO ENAME           JOB                    SAL HIREDATE         DNO      PHONE
+---------- --------------- --------------- ---------- --------- ---------- ----------
+       101 varun           tester               10000 21-DEC-23         20 9876543210
+       102 shivam                               12000 21-DEC-23         10 9876543211
+       104 vishal          dev                  16000 21-DEC-23         10 9876543216
+       105 karan                                    0 20-DEC-23            9876543321
+
+SQL> insert into spiders values(106,'abc','dev',12000,sysdate,20,9876543245);
+
+1 row created.
+
+SQL> select *
+  2  from spiders;
+
+     SR_NO ENAME           JOB                    SAL HIREDATE         DNO      PHONE
+---------- --------------- --------------- ---------- --------- ---------- ----------
+       101 varun           tester               10000 21-DEC-23         20 9876543210
+       102 shivam                               12000 21-DEC-23         10 9876543211
+       104 vishal          dev                  16000 21-DEC-23         10 9876543216
+       105 karan                                    0 20-DEC-23            9876543321
+       106 abc             dev                  12000 22-DEC-23         20 9876543245
+
+SQL> commit;
+
+Commit complete.
+
+SQL> delete from spiders
+  2  where ename like 'a%';
+
+1 row deleted.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  delete from spiders
+  2* where ename like 'v%'
+SQL> /
+
+2 rows deleted.
+
+SQL> select *
+  2  from spiders;
+
+     SR_NO ENAME           JOB                    SAL HIREDATE         DNO      PHONE
+---------- --------------- --------------- ---------- --------- ---------- ----------
+       102 shivam                               12000 21-DEC-23         10 9876543211
+       105 karan                                    0 20-DEC-23            9876543321
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select *
+  2  from spiders;
+
+     SR_NO ENAME           JOB                    SAL HIREDATE         DNO      PHONE
+---------- --------------- --------------- ---------- --------- ---------- ----------
+       101 varun           tester               10000 21-DEC-23         20 9876543210
+       102 shivam                               12000 21-DEC-23         10 9876543211
+       104 vishal          dev                  16000 21-DEC-23         10 9876543216
+       105 karan                                    0 20-DEC-23            9876543321
+       106 abc             dev                  12000 22-DEC-23         20 9876543245
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select *
+  2  from spiders;
+
+     SR_NO ENAME           JOB                    SAL HIREDATE         DNO      PHONE
+---------- --------------- --------------- ---------- --------- ---------- ----------
+       101 varun           tester               10000 21-DEC-23         20 9876543210
+       102 shivam                               12000 21-DEC-23         10 9876543211
+       104 vishal          dev                  16000 21-DEC-23         10 9876543216
+       105 karan                                    0 20-DEC-23            9876543321
+       106 abc             dev                  12000 22-DEC-23         20 9876543245
+
+SQL> insert into spiders values(107,'cde','test',11000,sysdate,10,8765487656);
+
+1 row created.
+
+SQL> savepoint s1;
+
+Savepoint created.
+
+SQL> delete from spiders
+  2  where ename like 'v%';
+
+2 rows deleted.
+
+SQL> savepoint s2;
+
+Savepoint created.
+
+SQL> update spiders
+  2  set sal =sal*1.5
+  3  where ename like 'a%';
+
+1 row updated.
+
+SQL> savepoint s3;
+
+Savepoint created.
+
+SQL> select *
+  2  from spiders;
+
+     SR_NO ENAME           JOB                    SAL HIREDATE         DNO      PHONE
+---------- --------------- --------------- ---------- --------- ---------- ----------
+       102 shivam                               12000 21-DEC-23         10 9876543211
+       105 karan                                    0 20-DEC-23            9876543321
+       106 abc             dev                  18000 22-DEC-23         20 9876543245
+       107 cde             test                 11000 22-DEC-23         10 8765487656
+
+SQL> rollback to s2;
+
+Rollback complete.
+
+SQL> rollback to s3;
+rollback to s3
+*
+ERROR at line 1:
+ORA-01086: savepoint 'S3' never established
+
+
+SQL> rollback to s1;
+
+Rollback complete.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select *
+  2  from spiders;
+
+     SR_NO ENAME           JOB                    SAL HIREDATE         DNO      PHONE
+---------- --------------- --------------- ---------- --------- ---------- ----------
+       101 varun           tester               10000 21-DEC-23         20 9876543210
+       102 shivam                               12000 21-DEC-23         10 9876543211
+       104 vishal          dev                  16000 21-DEC-23         10 9876543216
+       105 karan                                    0 20-DEC-23            9876543321
+       106 abc             dev                  12000 22-DEC-23         20 9876543245
+       107 cde             test                 11000 22-DEC-23         10 8765487656
+
+6 rows selected.

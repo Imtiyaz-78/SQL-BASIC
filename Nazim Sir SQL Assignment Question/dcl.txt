@@ -1,0 +1,142 @@
+SQL> show user;
+USER is "SCOTT"
+SQL> connect
+Enter user-name: hr
+Enter password: *****
+Connected.
+SQL> show user;
+USER is "HR"
+SQL> select *
+  2  from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+REGIONS                        TABLE
+COUNTRIES                      TABLE
+LOCATIONS                      TABLE
+DEPARTMENTS                    TABLE
+JOBS                           TABLE
+EMPLOYEES                      TABLE
+JOB_HISTORY                    TABLE
+EMP_DETAILS_VIEW               VIEW
+TEMP_DEPT                      TABLE
+HII                            TABLE
+
+10 rows selected.
+
+SQL> select *
+  2  from countries;
+
+CO COUNTRY_NAME                              REGION_ID
+-- ---------------------------------------- ----------
+AR Argentina                                         2
+AU Australia                                         3
+BE Belgium                                           1
+BR Brazil                                            2
+CA Canada                                            2
+CH Switzerland                                       1
+CN China                                             3
+DE Germany                                           1
+DK Denmark                                           1
+EG Egypt                                             4
+FR France                                            1
+HK HongKong                                          3
+IL Israel                                            4
+IN India                                             3
+IT Italy                                             1
+JP Japan                                             3
+KW Kuwait                                            4
+MX Mexico                                            2
+NG Nigeria                                           4
+NL Netherlands                                       1
+SG Singapore                                         3
+UK United Kingdom                                    1
+US United States of America                          2
+ZM Zambia                                            4
+ZW Zimbabwe                                          4
+
+25 rows selected.
+
+SQL> select *
+  2  from scott.emp;
+from scott.emp
+           *
+ERROR at line 2:
+ORA-00942: table or view does not exist
+
+
+SQL> connect
+Enter user-name: scott
+Enter password: *****
+Connected.
+SQL> grant select 
+  2  on emp
+  3  to hr;
+
+Grant succeeded.
+
+SQL> connect
+Enter user-name: hr
+Enter password: *****
+Connected.
+SQL> select *
+  2  from scott.emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEP
+---------- ---------- --------- ---------- --------- ---------- ---------- -------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300        
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500        
+      7566 JONES      MANAGER         7839 02-APR-81       2975                   
+      7654 MARTIN_GUP SALESMAN        7698 28-SEP-81       1250       1400        
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0        
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                   
+
+14 rows selected.
+
+SQL> show user;
+USER is "HR"
+SQL> connect
+Enter user-name: scott
+Enter password: *****
+Connected.
+SQL> revoke select
+  2  on emp
+  3  from hr;
+
+Revoke succeeded.
+
+SQL> grant select
+  2  on dept
+  3  to hr;
+
+Grant succeeded.
+
+SQL> connect
+Enter user-name: hr
+Enter password: *****
+Connected.
+SQL> select *
+  2  from scott.emp;
+from scott.emp
+           *
+ERROR at line 2:
+ORA-00942: table or view does not exist
+
+
+SQL> select *
+  2  from scott.dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON

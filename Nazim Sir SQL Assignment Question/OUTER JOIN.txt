@@ -1,0 +1,34 @@
+1. Table Structures:
+
+   countries table: country_id, country_name
+   capitals table: capital_id, capital_name, country_id
+
+   -List all countries and their capitals, including countries without known capitals.
+
+2. Table Structures:
+
+   managers table: manager_id, manager_name
+   employees table: employee_id, employee_name, manager_id
+
+   -Display a list of all managers and the employees they manage, including managers who do     not have any employees under them.
+
+3. Table Structures:
+
+   authors table: author_id, author_name
+   books table: book_id, book_title, author_id
+
+   -Show a list of all available books and the authors who wrote them, including authors     without any associated books.
+
+4. Table Structures:
+
+   customers table: customer_id, customer_name
+   orders table: order_id, customer_id, order_date
+
+   -Retrieve a list of all customers and their orders, along with any unmatched data from both     sides.
+
+5. Table Structures:
+
+   products table: product_id, product_name, supplier_id
+   suppliers table: supplier_id, supplier_name
+
+   -List all available products and their suppliers, along with any products without suppliers     and suppliers without associated products.
